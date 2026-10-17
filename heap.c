@@ -22,7 +22,9 @@ if (b->priority < a->priority)
  */
 void insert(Heap *p, const Msg x)
 {
-        // Энд оруулах үйлдлийг хийнэ
+ p->h_arr[p->h_len] = x;
+        p->h_len++;
+        swim(p, p->h_len - 1);        // Энд оруулах үйлдлийг хийнэ
 }
 
 /*
@@ -31,7 +33,10 @@ void insert(Heap *p, const Msg x)
  */
 static void swim(Heap *p, int k)
 {
-        // Энд swim үйлдлийг хийнэ
+while (k > 0 && less(&p->h_arr[k], &p->h_arr[(k - 1) / 2])) {  
+                exch(p, k, (k - 1) / 2);
+                k = (k - 1) / 2;
+        }        // Энд swim үйлдлийг хийнэ
 }
 
 /*
