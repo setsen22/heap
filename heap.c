@@ -12,6 +12,8 @@ int less(const Msg *a, const Msg *b)
 {
 if (b->priority < a->priority)
                 return 1;
+        if (b->priority == a->priority && b->time > a->time)   
+                return 1;
         return 0;        // Энд жиших үйлдийг хийнэ
 }
 
