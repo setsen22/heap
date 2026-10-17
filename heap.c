@@ -45,7 +45,15 @@ while (k > 0 && less(&p->h_arr[(k - 1) / 2], &p->h_arr[k])) {
  */
 static void sink(Heap *p, int k)
 {
-        // Энд sink үйлдлийг хийнэ
+while (2 * k + 1 < p->h_len) {
+                int j = 2 * k + 1;
+                if (j + 1 < p->h_len && less(&p->h_arr[j + 1], &p->h_arr[j])) 
+                        j++;
+                if (!less(&p->h_arr[k], &p->h_arr[j]))
+                        break;
+                exch(p, k, j);
+                k = j;
+        }        // Энд sink үйлдлийг хийнэ
 }
 
 /*
@@ -55,9 +63,9 @@ static void sink(Heap *p, int k)
 Msg delMin(Heap *p)
 {
 Msg m = p->h_arr[0];
-        p->h_arr[0] = p->h_arr[p->h_len - 1];  
+        p->h_arr[0] = p->h_arr[p->h_len - 1];
         p->h_len--;
-       
+        sink(p, 0);
         return m;        // Энд хамгийн багыг гаргах үйлдлийг хийнэ
 }
 
