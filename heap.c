@@ -55,6 +55,9 @@ static void sink(Heap *p, int k)
 Msg delMin(Heap *p)
 {
 Msg m = p->h_arr[0];
+        p->h_arr[0] = p->h_arr[p->h_len - 1];  
+        p->h_len--;
+       
         return m;        // Энд хамгийн багыг гаргах үйлдлийг хийнэ
 }
 
