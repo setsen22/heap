@@ -33,7 +33,7 @@ void insert(Heap *p, const Msg x)
  */
 static void swim(Heap *p, int k)
 {
-while (k > 0 && less(&p->h_arr[k], &p->h_arr[(k - 1) / 2])) {  
+while (k > 0 && less(&p->h_arr[(k - 1) / 2], &p->h_arr[k])) {
                 exch(p, k, (k - 1) / 2);
                 k = (k - 1) / 2;
         }        // Энд swim үйлдлийг хийнэ
