@@ -10,7 +10,9 @@ static void sink(Heap *p, int);
 */
 int less(const Msg *a, const Msg *b)
 {
-        // Энд жиших үйлдийг хийнэ
+if (b->priority < a->priority)
+                return 1;
+        return 0;        // Энд жиших үйлдийг хийнэ
 }
 
 /*
@@ -47,6 +49,7 @@ static void sink(Heap *p, int k)
  */
 Msg delMin(Heap *p)
 {
-        // Энд хамгийн багыг гаргах үйлдлийг хийнэ
+Msg m = p->h_arr[0];
+        return m;        // Энд хамгийн багыг гаргах үйлдлийг хийнэ
 }
 
