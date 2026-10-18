@@ -12,7 +12,7 @@ int less(const Msg *a, const Msg *b)
 {
 if (b->priority < a->priority)
                 return 1;
-        if (b->priority == a->priority && b->time > a->time)   
+        if (b->priority == a->priority && b->time < a->time)
                 return 1;
         return 0;        // Энд жиших үйлдийг хийнэ
 }
@@ -24,7 +24,9 @@ if (b->priority < a->priority)
  */
 void insert(Heap *p, const Msg x)
 {
- p->h_arr[p->h_len] = x;
+static int counter = 0;
+        p->h_arr[p->h_len] = x;
+        p->h_arr[p->h_len].time = counter++;
         p->h_len++;
         swim(p, p->h_len - 1);        // Энд оруулах үйлдлийг хийнэ
 }
