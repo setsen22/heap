@@ -24,10 +24,8 @@ if (b->priority < a->priority)
  */
 void insert(Heap *p, const Msg x)
 {
-static int counter = 0;
-        p->h_arr[p->h_len] = x;
-        p->h_arr[p->h_len].time = counter++;
-        p->h_len++;
+ p->h_arr[p->h_len] = x;         
+        p->h_len++                    
         swim(p, p->h_len - 1);        // Энд оруулах үйлдлийг хийнэ
 }
 
