@@ -14,7 +14,7 @@ if (b->priority < a->priority)
                 return 1;
         if (b->priority == a->priority && b->time < a->time)
                 return 1;
-        return 0;        // Энд жиших үйлдийг хийнэ
+        return 0;       // Энд жиших үйлдийг хийнэ
 }
 
 /*
@@ -24,8 +24,8 @@ if (b->priority < a->priority)
  */
 void insert(Heap *p, const Msg x)
 {
- p->h_arr[p->h_len] = x;        
-        p->h_len++;                    
+p->h_arr[p->h_len] = x;       
+        p->h_len++;                
         swim(p, p->h_len - 1);        // Энд оруулах үйлдлийг хийнэ
 }
 
@@ -49,6 +49,7 @@ static void sink(Heap *p, int k)
 {
 while (2 * k + 1 < p->h_len) {
                 int j = 2 * k + 1;
+                /* хоёр хүүгийн илүү чухлыг сонгоно */
                 if (j + 1 < p->h_len && less(&p->h_arr[j], &p->h_arr[j + 1]))
                         j++;
                 if (!less(&p->h_arr[k], &p->h_arr[j]))
@@ -65,7 +66,7 @@ while (2 * k + 1 < p->h_len) {
  */
 Msg delMin(Heap *p)
 {
- Msg m = p->h_arr[0];
+Msg m = p->h_arr[0];
         p->h_arr[0] = p->h_arr[p->h_len - 1];
         p->h_len--;
         sink(p, 0);
