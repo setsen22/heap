@@ -24,8 +24,8 @@ if (b->priority < a->priority)
  */
 void insert(Heap *p, const Msg x)
 {
- p->h_arr[p->h_len] = x;         
-        p->h_len++                    
+ p->h_arr[p->h_len] = x;        
+        p->h_len++;                    
         swim(p, p->h_len - 1);        // Энд оруулах үйлдлийг хийнэ
 }
 
@@ -38,7 +38,7 @@ static void swim(Heap *p, int k)
 while (k > 0 && less(&p->h_arr[(k - 1) / 2], &p->h_arr[k])) {
                 exch(p, k, (k - 1) / 2);
                 k = (k - 1) / 2;
-        }        // Энд swim үйлдлийг хийнэ
+        }       // Энд swim үйлдлийг хийнэ
 }
 
 /*
@@ -65,7 +65,7 @@ while (2 * k + 1 < p->h_len) {
  */
 Msg delMin(Heap *p)
 {
-Msg m = p->h_arr[0];
+ Msg m = p->h_arr[0];
         p->h_arr[0] = p->h_arr[p->h_len - 1];
         p->h_len--;
         sink(p, 0);
