@@ -56,7 +56,6 @@ static void sink(Heap *p, int k)
 {
 while (2 * k + 1 < p->h_len) {
                 int j = 2 * k + 1;
-                /* хоёр хүүгийн илүү чухлыг сонгоно */
                 if (j + 1 < p->h_len && less(&p->h_arr[j], &p->h_arr[j + 1]))
                         j++;
                 if (!less(&p->h_arr[k], &p->h_arr[j]))
