@@ -2,7 +2,12 @@
 
 static void swim(Heap *p, int);
 static void sink(Heap *p, int);
-
+static void exch(Heap *p, int i, int j)
+{
+        Msg tmp = p->h_arr[i];
+        p->h_arr[i] = p->h_arr[j];
+        p->h_arr[j] = tmp;
+}
 /*
   Хоёр зурвасын чухлыг харьцуулах функц.
   b нь илүү чухал бол 1, бусад үед 0-ыг буцаах функц.
